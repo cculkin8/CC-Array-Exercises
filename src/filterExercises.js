@@ -52,25 +52,7 @@ export const getStudentsByLanguage = (language) =>{
 // It should return an array of students who know the given language
 // HINT: In addition to the `filter` method, you might also look up the `some` method
 
-export const getStudentsByLanguages = (languages) =>{
 
-    return useStudents().filter(student =>{
-        let isInArray = true;
-        languages.forEach(item =>{
-            if(!student.languages.includes(item))isInArray = false
-         })
-        return isInArray;
-    })
-
-}
-
-const inArray = (a, b) =>{
-    isInArray = true;
-  b.forEach(item =>{
-     if(!a.includes(item))isInArray = false
-  })
-    return isInArray;
-  }
 /******** ADVANCED CHALLENGE ********/
 /******** Only do this if all other tests are passing ****/
 /******** To test, uncomment the code at the bottom of tests/filter.spec.js  *****/
