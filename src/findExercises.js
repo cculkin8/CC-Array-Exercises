@@ -18,7 +18,7 @@ export const getInstructorById = (id) =>{
 // It should return the instructor object with the matching ID
 // Ex: getInstructorById(1)
 export const getStudentByLastName = (lastName) => {
-    return useStudents().find(stu =>{return (stu.lastName.toLowerCase() === lastName.toLowerCase());})
+    return useStudents().find(notStudent =>{return (notStudent.lastName.toUpperCase() === lastName.toUpperCase());})
 }
 // Export a function called getStudentByLastName
 // It should accept one string parameter named `lastName`
@@ -27,8 +27,8 @@ export const getStudentByLastName = (lastName) => {
 // Ex: getStudentByName("sMiTh")
 
 export const getStudentByName = (fullName) =>{
-    return useStudents().find(stu =>{
-        return (`${stu.firstName.toLowerCase()} ${stu.lastName.toLowerCase()}` === fullName.toLowerCase());
+    return useStudents().find(notStudent =>{
+        return (`${notStudent.firstName.toUpperCase()} ${notStudent.lastName.toUpperCase()}` === fullName.toUpperCase());
     })
 }
 // Export a function called getStudentByName
@@ -39,7 +39,7 @@ export const getStudentByName = (fullName) =>{
 
 export const getInstructorOfStudent = (studentId) => {
     return useInstructors().find(inst =>{
-        return (inst.id === useStudents().find(stu => stu.id === studentId).instructorId)
+        return (inst.id === useStudents().find(notStudent => notStudent.id === studentId).instructorId)
     })
 }
 // Export a function called getInstructorOfStudent
